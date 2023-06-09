@@ -40,13 +40,13 @@ n_l = [6,12,24,36,48,60,72,84,96]
 occupancy_vals = np.zeros(len(n_l))
 avgspd_vals = np.zeros((len(n_l),len(kappa_l)))
 collision_vals = np.zeros((len(n_l),len(kappa_l))) 
-ntrials = 20
+ntrials = 10
 
 for u in range(len(n_l)):
     
     fig,ax = plt.subplots(2,3,figsize=(24,16))
     bounding_area = 3. * 8.
-    occupancy_vals[u] = putils.occupancy(75/320,bounding_area)
+    occupancy_vals[u] = n_l[u]*putils.occupancy(75/320,bounding_area)
     print("Occupancy =", occupancy_vals[u])
     
     for i in range(len(kappa_l)):
